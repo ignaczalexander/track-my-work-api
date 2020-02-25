@@ -130,13 +130,7 @@ router.put('/password', authController.authenticate, (req, res) => {
     });
   });
 });
-router.post(
-  '/facebook',
-  authController.inspectToken,
-  authController.getUserData,
-  authController.generateToken,
-  authController.sendToken
-);
+
 // @route GET api/users/login
 // @desc Login user / Returning JWT Token
 // @access Public
