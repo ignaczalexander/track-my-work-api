@@ -17,11 +17,14 @@ const createToken = function(user) {
   );
 };
 exports.authenticate = (req, res, next) => {
-  const token = req.header('Authorization');
-  if (!token) {
+  let token = req.header('Authorization');
+  
+  if (!token || !token.startsWith("Bearer ")) {
     res.status(401).json({ msg: 'Not authenticated!' });
     return;
   }
+
+  token = token.slice(7, token.length).trimLeft()  
 
   jwt.verify(token, keys.secretOrKey, (err, decoded) => {
     if (err) {
