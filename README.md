@@ -28,8 +28,8 @@ The full description of the API endpoints can be found on the Wiki.
 Route | Method | Description
 ------------ | ------------- | ------------
 `/ap/users/register` | `POST` | [Register a new user](#register-a-new-user)
-`/api/users/login` | `POST` | Login the user
-`/api/users/confirm/:token` | `GET` | Confirm the registration
+`/api/users/login` | `POST` | [Login a user](#login-a-user)
+`/api/users/confirm/:token` | `GET` | [Confirm the registration](#confirm-the-registration)
 `/api/users/password` | `PUT` | Change password
 `/api/period` | `GET` | Get all periods for the user
 `/api/period/:id` | `GET` | Get a period by id
@@ -76,7 +76,7 @@ Route | Method | Description
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message: `Impossible to send email to ${user.email}` }`
     
-**Login using email and password**
+**Login a user
 ----
  Evaluates the supplied email and password and returns a JWT token.
  
@@ -116,3 +116,38 @@ Route | Method | Description
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ notverified: 'Your account has not been verified.' }`
+    
+**Confirm the registration
+----
+ Evaluates the supplied token and cofirms the registration for the user
+ 
+* **URL**
+
+  `/api/users/confirm/:token`
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+  token=[string] <br/>
+
+* **Data Params**
+
+  *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ message: 'The account has been verified. Please log in.' }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+  
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** Errors
