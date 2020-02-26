@@ -135,7 +135,7 @@ Route | Method | Description
 
 * **Data Params**
 
-  *none*
+    *none*
 
 * **Success Response:**
 
@@ -166,7 +166,7 @@ Route | Method | Description
   
 *  **URL Params**
 
-  *none*
+    *none*
 
 * **Data Params**
 
@@ -380,3 +380,39 @@ Route | Method | Description
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Delete a shift from a period**
+----
+ Deletes a shift from the specified period for the user.
+ 
+* **URL**
+
+  `/api/shift/:period_id/:shift_id`
+
+* **Method:**
+
+  `DELETE`
+  
+*  **URL Params**
+
+    period_id=[String]<br/>
+    shift_id=[String]
+
+* **Data Params**
+
+    *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ success: true }`
+    
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** Error
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`    
