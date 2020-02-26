@@ -304,4 +304,79 @@ Route | Method | Description
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Delete a period by id**
+----
+ Deletes a period using the specified id for the user.
+ 
+* **URL**
 
+  `/api/period/:id`
+
+* **Method:**
+
+  `DELETE`
+  
+*  **URL Params**
+
+  id=[String]
+
+* **Data Params**
+
+  *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ success: true, msg: 'Period deleted' }`
+    
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+
+**Create a shift for a period**
+----
+ Creates a shift for the specified period for the user.
+ 
+* **URL**
+
+  `/api/shift/:period_id`
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+    period_id=[String]
+
+* **Data Params**
+
+    start_date=[Date] <br/>
+    end_date=[Date] <br/>
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** The update period containing the shift
+    
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
