@@ -31,7 +31,7 @@ Route | Method | Description
 `/api/users/login` | `POST` | [Login a user](#login-a-user)
 `/api/users/confirm/:token` | `GET` | [Confirm the registration](#confirm-the-registration)
 `/api/users/password` | `PUT` | [Change the password](#change-the-password)
-`/api/period` | `GET` | [Get all periods for the user](#get-all-periods-for-the-user)
+`/api/period` | `GET` | [Get all periods for the user](#get-periods)
 `/api/period/:id` | `GET` | [Get a period by id](#get-a-period-by-id)
 `/api/period` | `POST` | [Create a period for the user](#create-a-period-for-the-user)
 `/api/period/:id` | `DELETE` | [Delete a period by id](#delete-a-period-by-id)
@@ -189,6 +189,76 @@ Route | Method | Description
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ usernotfound: 'User not found' }`
     
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+
+**Get periods**
+----
+ Gets all the periods for the user.
+ 
+* **URL**
+
+  `/api/period`
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+  *none*
+
+* **Data Params**
+
+  *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** List of periods
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Get a period by id**
+----
+ Gets a period by id for the user.
+ 
+* **URL**
+
+  `/api/period/:id`
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+  id=[string]
+
+* **Data Params**
+
+  *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** A period
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
   OR
 
   * **Code:** 401 UNAUTHORIZED <br />
