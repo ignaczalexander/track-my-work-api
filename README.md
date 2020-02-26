@@ -23,7 +23,6 @@ This is a Node.js REST API that is used by the [TrackMyWork](https://github.com/
 5. You can connect to the server on https://localhost:5000
 
 ## Endpoint summary
-The full description of the API endpoints can be found on the Wiki.
 
 Route | Method | Description
 ------------ | ------------- | ------------
