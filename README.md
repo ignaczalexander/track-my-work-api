@@ -131,7 +131,7 @@ Route | Method | Description
   
 *  **URL Params**
 
-  token=[string] <br/>
+    token=[string] <br/>
 
 * **Data Params**
 
@@ -208,11 +208,11 @@ Route | Method | Description
   
 *  **URL Params**
 
-  *none*
+    *none*
 
 * **Data Params**
 
-  *none*
+    *none*
 
 * **Success Response:**
 
