@@ -319,7 +319,7 @@ Route | Method | Description
   
 *  **URL Params**
 
-  id=[String]
+   id=[String]
 
 * **Data Params**
 
