@@ -263,3 +263,45 @@ Route | Method | Description
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Create a period for the user**
+----
+ Creates a period with the specified data for the user.
+ 
+* **URL**
+
+  `/api/period/`
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+  *none*
+
+* **Data Params**
+
+  start_date=[Date]
+  end_date=[Date]
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** The created period
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+  
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+
