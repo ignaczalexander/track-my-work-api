@@ -76,7 +76,7 @@ Route | Method | Description
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message: `Impossible to send email to ${user.email}` }`
     
-**Login a user
+**Login a user**
 ----
  Evaluates the supplied email and password and returns a JWT token.
  
@@ -117,7 +117,7 @@ Route | Method | Description
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ notverified: 'Your account has not been verified.' }`
     
-**Confirm the registration
+**Confirm the registration**
 ----
  Evaluates the supplied token and cofirms the registration for the user
  
