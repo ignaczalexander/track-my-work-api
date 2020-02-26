@@ -12,7 +12,7 @@ This is a Node.js REST API that is used by the [TrackMyWork](https://github.com/
 ## How to run it locally
 1. Run `npm install` in the project directory
 2. Create a `keys_dev.js` file inside the *config* folder
-3. Export your MongoDB connection string and your JWT secret with the following structure:</br>
+3. Export your MongoDB connection string and your JWT secret from the `keys_dev.js` file:</br>
   ```javascript
 module.exports = {
       mongoURI: 'yourConnectionString',
