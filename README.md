@@ -270,7 +270,7 @@ Route | Method | Description
  
 * **URL**
 
-  `/api/period/`
+  `/api/period`
 
 * **Method:**
 
@@ -282,7 +282,7 @@ Route | Method | Description
 
 * **Data Params**
 
-  start_date=[Date]
+  start_date=[Date] <br/>
   end_date=[Date]
 
 * **Success Response:**
