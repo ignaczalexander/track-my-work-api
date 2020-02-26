@@ -14,9 +14,9 @@ This is a Node.js REST API that is used by the [TrackMyWork](https://github.com/
 2. Create a `keys_dev.js` file inside the *config* folder
 3. Export your MongoDB connection string and your JWT secret with the following structure:</br>
   ```javascript
-  module.exports = {
-  mongoURI: 'yourConnectionString',
-  secretOrKey: 'yourSecret',
+module.exports = {
+      mongoURI: 'yourConnectionString',
+      secretOrKey: 'yourSecret',
 };
 ```
 4. Run `npm start` to run the server in development mode
