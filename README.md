@@ -30,7 +30,7 @@ Route | Method | Description
 `/ap/users/register` | `POST` | [Register a new user](#register-a-new-user)
 `/api/users/login` | `POST` | [Login a user](#login-a-user)
 `/api/users/confirm/:token` | `GET` | [Confirm the registration](#confirm-the-registration)
-`/api/users/password` | `PUT` | Change password
+`/api/users/password` | `PUT` | [Change the password](#change-the-password)
 `/api/period` | `GET` | Get all periods for the user
 `/api/period/:id` | `GET` | Get a period by id
 `/api/period` | `POST` | Create a period for the user
@@ -151,3 +151,45 @@ Route | Method | Description
   
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** Errors
+    
+**Change the password**
+----
+ Changes the password for the user.
+ 
+* **URL**
+
+  `/api/users/password`
+
+* **Method:**
+
+  `PUT`
+  
+*  **URL Params**
+
+  *none*
+
+* **Data Params**
+
+  password=[string] <br/>
+  password2=[string] <br/>
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ success: true, token: jwtToken }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+  
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ usernotfound: 'User not found' }`
+    
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
