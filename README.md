@@ -21,3 +21,19 @@ This is a Node.js REST API that is used by the [TrackMyWork](https://github.com/
 ```
 4. Run `npm start` to run the server in development mode
 5. You can connect to the server on https://localhost:5000
+
+## Endpoint summary
+The full description of the API endpoints can be found on the Wiki.
+
+Route | Method | Description
+------------ | ------------- | ------------
+`/ap/users/register` | `POST` | Register a new user
+`/api/users/login` | `POST` | Login the user
+`/api/users/confirm/:token` | `GET` | Confirm the registration
+`/api/users/password` | `PUT` | Change password
+`/api/period` | `GET` | Get all periods for the user
+`/api/period/:id` | `GET` | Get a period by id
+`/api/period` | `POST` | Create a period for the user
+`/api/period/:id` | `DELETE` | Delete a period by id
+`/api/shift/:period_id` | `POST` | Create a shift for a period
+`/api/shift/:period_id/:shift_id` | `DELETE` | Delete a shift from a period
