@@ -37,3 +37,42 @@ Route | Method | Description
 `/api/period/:id` | `DELETE` | Delete a period by id
 `/api/shift/:period_id` | `POST` | Create a shift for a period
 `/api/shift/:period_id/:shift_id` | `DELETE` | Delete a shift from a period
+
+**Register a new user**
+----
+ Creates a new user
+ 
+* **URL**
+
+  /api/users/register
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   none
+
+* **Data Params**
+
+  name=[string] <br/>
+  email=[string] <br/>
+  password=[string] <br/>
+  password2=[string] <br/>
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ message: 'A verification mail has been sent.' }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** `{ message: `Impossible to send email to ${user.email}` 
+                      }`
