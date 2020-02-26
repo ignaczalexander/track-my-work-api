@@ -243,7 +243,7 @@ Route | Method | Description
   
 *  **URL Params**
 
-  id=[string]
+    id=[string]
 
 * **Data Params**
 
@@ -278,7 +278,7 @@ Route | Method | Description
   
 *  **URL Params**
 
-  *none*
+    *none*
 
 * **Data Params**
 
