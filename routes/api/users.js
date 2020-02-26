@@ -121,7 +121,7 @@ router.put('/password', authController.authenticate, (req, res) => {
               keys.secretOrKey,
               { expiresIn: 3600 },
               (err, token) => {
-                res.json({ success: true, token: 'Bearer ' + token });
+                res.json({ success: true, token });
               }
             );
           });
