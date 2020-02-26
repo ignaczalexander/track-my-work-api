@@ -40,11 +40,11 @@ Route | Method | Description
 
 **Register a new user**
 ----
- Creates a new user
+ Creates a new user and sends a verification email to the specified email address.
  
 * **URL**
 
-  /api/users/register
+  `/api/users/register`
 
 * **Method:**
 
@@ -52,7 +52,7 @@ Route | Method | Description
   
 *  **URL Params**
 
-   none
+   *none*
 
 * **Data Params**
 
@@ -74,5 +74,45 @@ Route | Method | Description
   OR
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ message: `Impossible to send email to ${user.email}` 
-                      }`
+    **Content:** `{ message: `Impossible to send email to ${user.email}` }`
+    
+**Login using email and password**
+----
+ Evaluates the supplied email and password and returns a JWT token.
+ 
+* **URL**
+
+  `/api/users/login`
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   *none*
+
+* **Data Params**
+
+  email=[string] <br/>
+  password=[string] <br/>
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ success: true, token: jwtToken }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+  
+   * **Code:** 404 NOT FOUND <br />
+    **Content:** Errors
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ notverified: 'Your account has not been verified.' }`
