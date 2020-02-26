@@ -27,7 +27,7 @@ The full description of the API endpoints can be found on the Wiki.
 
 Route | Method | Description
 ------------ | ------------- | ------------
-`/ap/users/register` | `POST` | Register a new user
+`/ap/users/register` | `POST` | [Register a new user](#register-a-new-user)
 `/api/users/login` | `POST` | Login the user
 `/api/users/confirm/:token` | `GET` | Confirm the registration
 `/api/users/password` | `PUT` | Change password
