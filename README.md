@@ -12,18 +12,17 @@ This is a Node.js REST API that is used by the [TrackMyWork](https://github.com/
 ## How to run it locally
 1. Run `npm install` in the project directory
 2. Create a `keys_dev.js` file inside the *config* folder
-3. Export your MongoDB connection string and your JWT secret with the following structure:</br>
+3. Export your MongoDB connection string and your JWT secret from the `keys_dev.js` file:</br>
   ```javascript
-  module.exports = {
-  mongoURI: 'yourConnectionString',
-  secretOrKey: 'yourSecret',
+module.exports = {
+      mongoURI: 'yourConnectionString',
+      secretOrKey: 'yourSecret',
 };
 ```
 4. Run `npm start` to run the server in development mode
 5. You can connect to the server on https://localhost:5000
 
 ## Endpoint summary
-The full description of the API endpoints can be found on the Wiki.
 
 Route | Method | Description
 ------------ | ------------- | ------------
@@ -31,12 +30,12 @@ Route | Method | Description
 `/api/users/login` | `POST` | [Login a user](#login-a-user)
 `/api/users/confirm/:token` | `GET` | [Confirm the registration](#confirm-the-registration)
 `/api/users/password` | `PUT` | [Change the password](#change-the-password)
-`/api/period` | `GET` | Get all periods for the user
-`/api/period/:id` | `GET` | Get a period by id
-`/api/period` | `POST` | Create a period for the user
-`/api/period/:id` | `DELETE` | Delete a period by id
-`/api/shift/:period_id` | `POST` | Create a shift for a period
-`/api/shift/:period_id/:shift_id` | `DELETE` | Delete a shift from a period
+`/api/period` | `GET` | [Get all periods for the user](#get-periods)
+`/api/period/:id` | `GET` | [Get a period by id](#get-a-period-by-id)
+`/api/period` | `POST` | [Create a period for the user](#create-a-period-for-the-user)
+`/api/period/:id` | `DELETE` | [Delete a period by id](#delete-a-period-by-id)
+`/api/shift/:period_id` | `POST` | [Create a shift for a period](#create-a-shift-for-a-period)
+`/api/shift/:period_id/:shift_id` | `DELETE` | [Delete a shift from a period](#delete-a-shift-from-a-period)
 
 **Register a new user**
 ----
@@ -131,11 +130,11 @@ Route | Method | Description
   
 *  **URL Params**
 
-  token=[string] <br/>
+    token=[string] <br/>
 
 * **Data Params**
 
-  *none*
+    *none*
 
 * **Success Response:**
 
@@ -166,7 +165,7 @@ Route | Method | Description
   
 *  **URL Params**
 
-  *none*
+    *none*
 
 * **Data Params**
 
@@ -193,3 +192,226 @@ Route | Method | Description
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ msg: 'Not authenticated!' }`
+
+**Get periods**
+----
+ Gets all the periods for the user.
+ 
+* **URL**
+
+  `/api/period`
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+    *none*
+
+* **Data Params**
+
+    *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** List of periods
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Get a period by id**
+----
+ Gets a period by id for the user.
+ 
+* **URL**
+
+  `/api/period/:id`
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+    id=[string]
+
+* **Data Params**
+
+  *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** A period
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Create a period for the user**
+----
+ Creates a period with the specified data for the user.
+ 
+* **URL**
+
+  `/api/period`
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+    *none*
+
+* **Data Params**
+
+  start_date=[Date] <br/>
+  end_date=[Date]
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** The created period
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+  
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Delete a period by id**
+----
+ Deletes a period using the specified id for the user.
+ 
+* **URL**
+
+  `/api/period/:id`
+
+* **Method:**
+
+  `DELETE`
+  
+*  **URL Params**
+
+   id=[String]
+
+* **Data Params**
+
+  *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ success: true, msg: 'Period deleted' }`
+    
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+
+**Create a shift for a period**
+----
+ Creates a shift for the specified period for the user.
+ 
+* **URL**
+
+  `/api/shift/:period_id`
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+    period_id=[String]
+
+* **Data Params**
+
+    start_date=[Date] <br/>
+    end_date=[Date] <br/>
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** The update period containing the shift
+    
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** Errors
+
+  OR
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ periodnotfound: 'Period not found with id' }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`
+    
+**Delete a shift from a period**
+----
+ Deletes a shift from the specified period for the user.
+ 
+* **URL**
+
+  `/api/shift/:period_id/:shift_id`
+
+* **Method:**
+
+  `DELETE`
+  
+*  **URL Params**
+
+    period_id=[String]<br/>
+    shift_id=[String]
+
+* **Data Params**
+
+    *none*
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ success: true }`
+    
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** Error
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ msg: 'Not authenticated!' }`    
