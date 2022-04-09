@@ -23,7 +23,7 @@
     "express": "^4.16.4",
     "gulp": "^4.0.2",
     "gulp-less": "^4.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.4.18",
     "nodemon": "^1.18.10",
     "passport": "^0.4.0",
